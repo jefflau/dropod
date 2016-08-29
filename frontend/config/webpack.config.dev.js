@@ -44,13 +44,13 @@ module.exports = {
       {
         test: /\.js$/,
         loader: 'eslint',
-        include: [paths.appSrc, paths.reducers, paths.actions, paths.api]
+        include: [paths.appSrc, paths.reducers, paths.actions, paths.api, paths.util]
       }
     ],
     loaders: [
       {
         test: /\.js$/,
-        include: [paths.appSrc, paths.reducers, paths.actions, paths.api],
+        include: [paths.appSrc, paths.reducers, paths.actions, paths.api, paths.util],
         loader: 'babel',
         query: require('./babel.dev')
       },
