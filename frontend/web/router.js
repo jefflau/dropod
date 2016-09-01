@@ -12,7 +12,7 @@ import Layout from './components/layouts/MainLayout'
 const routes = (
   <Route path="/" component={Layout}>
     <IndexRoute component={Home} />
-    <Route path="/podcast/:id" component={Home} />
+    <Route path="/show/:id" component={Home} />
     <Route path="/about" component={About} />
   </Route>
 )

@@ -7,15 +7,24 @@ const setPodcastEpisodes = (podcast, id) => ({
   podcast
 })
 
-const setSearchPodcast = (podcasts) => ({
-  type: "SET_SEARCH_PODCASTS",
-  podcasts
+const setSearchShows = (shows) => ({
+  type: "SET_SEARCH_SHOWS",
+  shows
 })
+
+const setSearchEpisodes = (episodes) => ({
+  type: "SET_SEARCH_EPISODES",
+  episodes
+})
+
 
 export const searchPodcasts = (query: string) =>
   (dispatch: Function) =>
     podcastsAPI.searchPodcasts(query)
-      .then(podcasts => dispatch(setSearchPodcast(podcasts)))
+      .then(([episodes, shows]) => {
+        dispatch(setSearchShows(shows))
+        dispatch(setSearchEpisodes(episodes))
+      })
       .catch(err => console.error(err))
 
 export const getPodcastEpisodes = (feed: string, id: number) =>
